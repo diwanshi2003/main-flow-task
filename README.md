@@ -12,6 +12,9 @@ Further down, there's a features section that highlights what makes the product 
 
 The page also includes some JavaScript to make the dropdowns interactive, so it feels smooth and intuitive to use on any device.
 
+
+
+
 # code 
 
 <!DOCTYPE html>
