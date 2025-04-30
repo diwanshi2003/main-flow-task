@@ -12,3 +12,276 @@ Further down, there's a features section that highlights what makes the product 
 
 The page also includes some JavaScript to make the dropdowns interactive, so it feels smooth and intuitive to use on any device.
 
+# code 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4a90e2;
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --white: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav > ul > li > a {
+      padding: 0.5rem;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    nav ul ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      min-width: 180px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      flex-direction: column;
+    }
+
+    nav ul ul li a {
+      padding: 0.75rem 1rem;
+      display: block;
+      text-decoration: none;
+      color: var(--text-color);
+      transition: background 0.3s;
+    }
+
+    nav ul ul li a:hover {
+      background: #f0f0f0;
+    }
+
+    nav li:hover > ul,
+    nav li.show > ul {
+      display: flex;
+    }
+
+    .dropdown-toggle::after {
+      content: ' ▼';
+      font-size: 0.6rem;
+    }
+
+    .hero {
+      background: linear-gradient(to right, rgba(74, 144, 226, 0.9), rgba(74, 144, 226, 0.7)),
+        url('https://source.unsplash.com/1600x800/?technology') center/cover no-repeat;
+      color: var(--white);
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-btn {
+      padding: 0.9rem 2rem;
+      background: var(--white);
+      color: var(--primary-color);
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .features {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    .feature {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 10px;
+      flex: 1 1 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      background: #222;
+      color: #bbb;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #bbb;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background: var(--white);
+        width: 100%;
+      }
+
+      nav ul ul {
+        position: static;
+        box-shadow: none;
+        background: #f0f0f0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MyLanding</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle">Features</a>
+          <ul>
+            <li><a href="#">Feature A</a></li>
+            <li><a href="#">Feature B</a></li>
+            <li><a href="#">Feature C</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle">Services</a>
+          <ul>
+            <li><a href="#">Service X</a></li>
+            <li><a href="#">Service Y</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Build Modern Web Experiences</h1>
+    <p>Simple. Responsive. Beautiful. All in one place.</p>
+    <button class="cta-btn">Get Started</button>
+  </section>
+
+  <section class="features">
+    <h2>Our Key Features</h2>
+    <div class="feature-list">
+      <div class="feature">
+        <h3>Fast Performance</h3>
+        <p>Optimized for speed to ensure great user experiences.</p>
+      </div>
+      <div class="feature">
+        <h3>Fully Responsive</h3>
+        <p>Works seamlessly across all devices and screen sizes.</p>
+      </div>
+      <div class="feature">
+        <h3>Clean Design</h3>
+        <p>Modern layout that is easy on the eyes and functional.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MyLanding. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        const parent = e.target.closest('li');
+        parent.classList.toggle('show');
+        document.querySelectorAll('.dropdown').forEach(item => {
+          if (item !== parent) item.classList.remove('show');
+        });
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('nav')) {
+        document.querySelectorAll('.dropdown').forEach(item => item.classList.remove('show'));
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
